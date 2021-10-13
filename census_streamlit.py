@@ -1,8 +1,6 @@
 import streamlit as st
 import pickle
 import numpy as np
-# import matplotlib.pyplot as plt
-# import seaborn as sns
 import pandas as pd
 # from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -12,17 +10,11 @@ from sklearn.neighbors import KNeighborsClassifier
 st.header('Product Club')
 st.subheader("US Census")
 
-# if city:
-#     df = pd.read_csv('./data/full_df.csv')
-#     model = pickle.load(open("../kmeans_model.sav", "rb"))
-#     fig = sns.pairplot(df, hue='labels', corner=True)
-#     st.pyplot(fig)
-
 #Choose Action
 user_pop_total = st.number_input('Population Total?')
 user_unemployment_rate = st.number_input('Unemployment Rate?')
-user_income = st.number_input('Income?')
-user_temp = st.number_input('Temperature?')
+user_income = st.number_input('Median Income?')
+user_temp = st.number_input('Climate (Temperature in Farenheit)?')
 
 city = st.checkbox('find a place')
 
