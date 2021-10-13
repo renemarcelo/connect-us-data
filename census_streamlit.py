@@ -1,5 +1,5 @@
 import streamlit as st
-# import pickle
+import pickle
 import numpy as np
 # import matplotlib.pyplot as plt
 # import seaborn as sns
@@ -38,7 +38,7 @@ if city:
     cols = data.columns[1:]
     X_scaled = scaler.fit_transform(data[cols])
     
-    kmeans = KMeans(n_clusters=200)
+    kmeans = pickle.load(open('./model/kmeans.pkl', 'rb'))
     kmeans.fit(X_scaled)
     data['label'] = kmeans.labels_
 
