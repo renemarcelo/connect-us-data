@@ -43,7 +43,7 @@ if city:
     
     prefdf = pd.DataFrame.from_dict(pref, orient='index').T
     pref_scaled = scaler.transform(prefdf)
-    pred = knn.predict(pref_scaled)[0]
+    pred = knn_model.predict(pref_scaled)[0]
     
     user_df = data[data.label == pred].county
     user_show = pd.DataFrame(user_df)
