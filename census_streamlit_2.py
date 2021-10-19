@@ -34,12 +34,15 @@ if city:
     knn = KNeighborsClassifier()
     knn.fit(X_scaled, y)
 
-#     pref={'median_income': [80_000], 
-#         'temp': [69], 
-#         'total_population': [80_000],
-#         'elev_in_ft': [80]}
-    prefdf = pd.DataFrame.from_dict(pref)
+    pref={'pop_total': user_pop_total, 
+        'unemployment_rate': user_unemployment_rate, 
+        'income': user_income,
+        'temp': user_temp}
+    
+    prefdf = pd.DataFrame.from_dict(pref, orient='index').T
     pref_scaled = scaler.transform(prefdf)
-
     pred = knn.predict(pref_scaled)[0]
-    data[data.label == pred]
+    
+    user_df = data[data.label == pred].county
+    user_show = pd.DataFrame(user_df)
+    user_show
