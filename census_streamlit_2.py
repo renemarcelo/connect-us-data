@@ -11,10 +11,10 @@ st.header('Product Club')
 st.subheader("US Census")
 
 #Choose Action
-user_pop_total = st.number_input('Population Total?')
-user_unemployment_rate = st.number_input('Unemployment Rate?')
-user_income = st.number_input('Median Income?')
-user_temp = st.number_input('Climate (Temperature in Farenheit)?')
+user_median_income = st.number_input('Median Income?')
+user_temp = st.number_input('Temperature? (F)')
+user_total_population = st.number_input('Total Population?')
+user_elev_in_ft = st.number_input('Elevation (ft)?')
 
 city = st.checkbox('find a place')
 
@@ -36,10 +36,10 @@ if city:
     knn_model = pickle.load(open('./model/knn_model.pkl', 'rb'))
     knn_model.fit(X_scaled, y)
 
-    pref={'pop_total': user_pop_total, 
-        'unemployment_rate': user_unemployment_rate, 
-        'income': user_income,
-        'temp': user_temp}
+    pref={'median_income': user_median_income, 
+        'temp': user_temp, 
+        'total_population': user_total_population,
+        'elev_in_ft': user_elev_in_ft}
     
     prefdf = pd.DataFrame.from_dict(pref, orient='index').T
     pref_scaled = scaler.transform(prefdf)
