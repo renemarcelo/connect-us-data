@@ -25,14 +25,16 @@ if city:
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(data[cols])
 
-    kmeans = KMeans(n_clusters=1000)
+#     kmeans = KMeans(n_clusters=1000)
+    kmeans = pickle.load(open('./model/kmeans.pkl', 'rb'))
     kmeans.fit(X_scaled)
 
     data['label'] = kmeans.labels_
     y = data.label
 
-    knn = KNeighborsClassifier()
-    knn.fit(X_scaled, y)
+#     knn = KNeighborsClassifier()
+    knn_model = pickle.load(open('./model/knn_model.pkl', 'rb'))
+    knn_model.fit(X_scaled, y)
 
     pref={'pop_total': user_pop_total, 
         'unemployment_rate': user_unemployment_rate, 
