@@ -1,4 +1,4 @@
-from Flask import Flask, Response, request, jsonify, render_template
+from flask import Flask, Response, request, jsonify, render_template
 import numpy as np
 import pandas as pd
 import pickle
