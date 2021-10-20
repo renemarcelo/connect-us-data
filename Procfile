@@ -1,1 +1,1 @@
-web: gunicorn myApp.wsgi --log-file
+web: python census_flask.py
