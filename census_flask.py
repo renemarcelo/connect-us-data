@@ -32,7 +32,7 @@ def county():
     y = data.label
     print('line33')
 
-    knn_model = pickle.load(open('./model/knn_updated.pkl', 'rb'))
+    knn_model = pickle.load(open('./model/knn_updated2.pkl', 'rb'))
     print('line36')
 #     knn_model.fit(X_scaled, y)
     
