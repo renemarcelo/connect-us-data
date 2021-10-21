@@ -12,9 +12,11 @@ app = Flask(__name__)
 # route 1: county dashboard
 @app.route("/")
 
-def county():
-    data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
-    return(len(data))
+data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
+return(len(data))
+
+# def county():
+#     data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
 #     cols = data.columns[1:]
 
 #     scaler = StandardScaler()
