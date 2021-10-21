@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 
 # initialize the flask app
-app = Flask("myApp")
+app = Flask(__name__)
 
 # route 1: county dashboard
 @app.route("/")
@@ -42,4 +42,4 @@ def county():
     return(user_show.to_dict())
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
