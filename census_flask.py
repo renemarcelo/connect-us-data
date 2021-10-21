@@ -40,7 +40,7 @@ def county():
 #     user_df = data[data.label == pred].county
 #     user_show = pd.DataFrame(user_df)
 #     return(user_show.to_dict())
-    return('test hello world')
+    return "<h1>Welcome to test</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)
