@@ -1,7 +1,7 @@
 from flask import Flask, Response, request, jsonify, render_template
 import numpy as np
 import pandas as pd
-import pickle
+# import pickle
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
@@ -19,13 +19,13 @@ def county():
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(data[cols])
 
-    kmeans = pickle.load(open('./model/kmeans.pkl', 'rb'))
+    kmeans = KMeans(n_clusters=200)
     kmeans.fit(X_scaled)
 
     data['label'] = kmeans.labels_
     y = data.label
 
-    knn_model = pickle.load(open('./model/knn_model.pkl', 'rb'))
+    knn = KNeighborsClassifier()
     knn_model.fit(X_scaled, y)
     
     pref={'median_income': [500_000], 
