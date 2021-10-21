@@ -1,7 +1,7 @@
 from flask import Flask, Response, request, jsonify, render_template
 import numpy as np
 import pandas as pd
-# import pickle
+import pickle
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
