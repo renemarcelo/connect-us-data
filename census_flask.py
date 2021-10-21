@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/")
 
 data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
-return(len(data))
+return(data.shape)
 
 # def county():
 #     data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
