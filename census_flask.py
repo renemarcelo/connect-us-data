@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 def county():
     data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
-    return(data.head())
+    data.head()
 #     cols = data.columns[1:]
 
 #     scaler = StandardScaler()
