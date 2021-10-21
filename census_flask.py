@@ -13,34 +13,33 @@ app = Flask(__name__)
 @app.route("/")
 
 def county():
-    return "<h1>Welcome to Test</h1>"
-    # data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
-    # cols = data.columns[1:]
+    data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
+    cols = data.columns[1:]
 
-    # scaler = StandardScaler()
-    # X_scaled = scaler.fit_transform(data[cols])
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(data[cols])
 
-    # kmeans = pickle.load(open('./model/kmeans.pkl', 'rb'))
-    # kmeans.fit(X_scaled)
+    kmeans = pickle.load(open('./model/kmeans.pkl', 'rb'))
+    kmeans.fit(X_scaled)
 
-    # data['label'] = kmeans.labels_
-    # y = data.label
+    data['label'] = kmeans.labels_
+    y = data.label
 
-    # knn_model = pickle.load(open('./model/knn_model.pkl', 'rb'))
-    # knn_model.fit(X_scaled, y)
+    knn_model = pickle.load(open('./model/knn_model.pkl', 'rb'))
+    knn_model.fit(X_scaled, y)
     
-    # pref={'median_income': [500_000], 
-    #     'temp': [70], 
-    #     'total_population': [80_000],
-    #     'elev_in_ft': [80]}
+    pref={'median_income': [500_000], 
+        'temp': [70], 
+        'total_population': [80_000],
+        'elev_in_ft': [80]}
     
-    # prefdf = pd.DataFrame.from_dict(pref, orient='index').T
-    # pref_scaled = scaler.transform(prefdf)
-    # pred = knn_model.predict(pref_scaled)[0]
+    prefdf = pd.DataFrame.from_dict(pref, orient='index').T
+    pref_scaled = scaler.transform(prefdf)
+    pred = knn_model.predict(pref_scaled)[0]
     
-    # user_df = data[data.label == pred].county
-    # user_show = pd.DataFrame(user_df)
-    # return(user_show.to_dict())
+    user_df = data[data.label == pred].county
+    user_show = pd.DataFrame(user_df)
+    return(user_show.to_dict())
 
 if __name__ == "__main__":
     app.run(debug=True)
