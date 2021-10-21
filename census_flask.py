@@ -26,7 +26,7 @@ def county():
     # y = data.label
 
     knn_model = pickle.load(open('./model/knn_updated.pkl', 'rb'))
-    knn_model.fit(X_scaled, y)
+#     knn_model.fit(X_scaled, y)
     
     pref={'median_income': [500_000], 
         'temp': [70], 
