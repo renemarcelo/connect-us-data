@@ -1,1 +1,1 @@
-web: gunicorn app:census_flask.py
+web: gunicorn census_flask.py:app
