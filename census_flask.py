@@ -10,7 +10,7 @@ from sklearn.neighbors import KNeighborsClassifier
 app = Flask(__name__)
 
 # route 1: county dashboard
-@app.route("/")
+@app.route("/model")
 
 def county():
     np.random.seed(123)
