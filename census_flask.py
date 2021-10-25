@@ -5,12 +5,18 @@ import pickle
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
+import time
 
 # initialize the flask app
 app = Flask(__name__)
 
+#test route for api 
+@app.route('/time')
+def get_current_time():
+  return {'time': time.time()}
+
 # route 1: county dashboard
-@app.route("/")
+@app.route("/model")
 
 def county():
     np.random.seed(123)
@@ -40,7 +46,7 @@ def county():
     
     pref={'median_income': [500_000], 
         'temp': [70], 
-        'total_population': [80_000],
+        'total_population': [70_000],
         'elev_in_ft': [80]}
     print('line43')
     
@@ -52,12 +58,11 @@ def county():
     print('line50')
     
     user_df = data[data.label == pred].county
-    print('line53')
     user_show = pd.DataFrame(user_df)
-    print('line55')
-    return(user_show.to_dict())
-    print('line57')
-    return "<h1>Welcome to test</h1>"
+    print(user_show)
+    #return(user_show)
+    return {'model_results' : user_show.to_dict()}
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
