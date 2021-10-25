@@ -58,9 +58,7 @@ def county():
     print('line50')
     
     user_df = data[data.label == pred].county
-    print('line53')
     user_show = pd.DataFrame(user_df)
-    print('line55')
     print(user_show)
     #return(user_show)
     return {'model_results' : user_show.to_dict()}
