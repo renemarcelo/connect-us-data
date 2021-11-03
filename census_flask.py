@@ -17,12 +17,12 @@ app = Flask(__name__)
 
 @app.route('/model', methods= ['POST'])
 def input_values():
-      print(request.json)
+      print(request.json, "request")
       values = request.json
       if values:
-          income = values["incomeRangeVal"]
-          temp = values["climateRangeVal"]
-          pop = values["popRangeVal"]
+          income = values["state"]["income"]
+          temp = values["state"]["climate"]
+          pop = values["state"]["pop"]
           print(income,temp,pop, "values")
           result = county(income, temp, pop)
           print(result, "results printed")
