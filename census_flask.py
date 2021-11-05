@@ -15,6 +15,10 @@ app = Flask(__name__)
 # route 1: county dashboard
 # @app.route('/model')
 
+@app.route('/')
+def hello_world():
+    return 'Connect US - A Census Bureau Product Club App'
+
 @app.route('/model', methods= ['POST'])
 def input_values():
       print(request.json, "request")
