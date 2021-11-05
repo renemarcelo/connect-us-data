@@ -2,14 +2,14 @@ from flask import Flask, Response, json, request, jsonify, render_template
 import numpy as np
 import pandas as pd
 import pickle
-# from flask_cors import CORS
+from flask_cors import CORS
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 
 # initialize the flask app
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 
 
 # route 1: county dashboard
