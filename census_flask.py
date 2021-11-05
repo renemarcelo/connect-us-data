@@ -27,15 +27,16 @@ def input_values():
           income = values["state"]["income"]
           temp = values["state"]["climate"]
           pop = values["state"]["pop"]
-          print(income,temp,pop, "values")
-          result = county(income, temp, pop)
+          elevation = values['state']["elevation"]
+          print(income,temp,pop,elevation, "values")
+          result = county(income, temp, pop, elevation)
           print(result, "results printed")
       return jsonify(result)
           
 
 # {'incomeRangeVal': '563042', 'climateRangeVal': '51', 'popRangeVal': '606995'}
 
-def county(income, temp, pop):
+def county(income, temp, pop, elevation):
     print('county is running')
     np.random.seed(123)
     
@@ -57,7 +58,7 @@ def county(income, temp, pop):
     pref={'median_income': [income], 
         'temp': [temp], 
         'total_population': [pop],
-        'elevation': [80]
+        'elevation': [elevation]
         }
     print('line43')
     
