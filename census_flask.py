@@ -1,8 +1,8 @@
 from flask import Flask, Response, json, request, jsonify, render_template
+from flask_cors import CORS
 import numpy as np
 import pandas as pd
 import pickle
-from flask_cors import CORS
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
