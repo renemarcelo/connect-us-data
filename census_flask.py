@@ -41,6 +41,9 @@ def county(income, temp, pop, elevation):
     np.random.seed(123)
     
     data = pd.read_csv('./data/joined_data_2.csv').drop(columns=['Unnamed: 0'])
+    #additional dataframe
+    additional_data= pd.read_csv('./data/joined_data_3.csv')
+    
     cols = data.columns[1:]
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(data[cols])
@@ -71,6 +74,9 @@ def county(income, temp, pop, elevation):
     
     user_df = data[data.label == pred].county
     user_show = pd.DataFrame(user_df)
+    
+    #merge new dataframe
+    user_show.merge(additional_data, on='county')
     print(user_show)
     #return(user_show)
     return {'model_results' : user_show.to_dict()}
