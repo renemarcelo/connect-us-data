@@ -79,7 +79,7 @@ def county(income, temp, pop, elevation):
     user_show.merge(additional_data, on='county')
     print(user_show)
     #return(user_show)
-    return {'model_results' : user_show.to_dict()}
+    return {'model_results' : user_show.merge(additional_data, on='county').to_dict()}
 
 
 
