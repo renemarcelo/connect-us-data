@@ -66,7 +66,7 @@ def county(income, temp, pop, elevation):
     pred = knn_model.predict(pref_scaled)[0]
     
     #output from user preferences
-    user_df = data[data.label == pred][['county', 'median_income', 'temp', 'total_population']]
+    user_df = data[data.label == pred][['county', 'median_income', 'temp', 'total_population', 'elev_in_ft]]
     user_show = pd.DataFrame(user_df)
     
     #return function with additional data
