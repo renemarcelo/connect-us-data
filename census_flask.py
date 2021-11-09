@@ -60,7 +60,7 @@ def county(income, temp, pop, elevation):
         'elevation': [elevation]
         }    
     
-    #create user preferences dataframe & predict
+    #create user preferences dataframe and predict
     prefdf = pd.DataFrame.from_dict(pref, orient='index').T
     pref_scaled = scaler.transform(prefdf)
     pred = knn_model.predict(pref_scaled)[0]
