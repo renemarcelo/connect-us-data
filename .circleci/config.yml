@@ -14,9 +14,7 @@ jobs:
       - run:
           name: Run tests
           command: python -m test_model #updated
-      - persist_to_workspace:
-          root: ~/project
-          paths:
+      
 workflows:
   past-hello-workflow:
     jobs:
