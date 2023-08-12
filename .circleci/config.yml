@@ -27,6 +27,7 @@ jobs:
       - attach_workspace:
           at: ~/project
       - heroku/deploy-via-git:
+          app-name: renes-2024-connect-us-data 
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git          
       
 workflows:
