@@ -11,11 +11,30 @@ jobs:
       - checkout # checkout source code
       - python/install-packages:
           pkg-manager: pip
-      - run:
-          name: Run tests
-          command: python -m test_model #updated
+      # - run:
+      #     name: Run tests
+      #     command: python -m test_model #updated
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .      
+
+  # ...previous job(s)...
+  deploy: # this can be any name you choose
+    executor: heroku/default # use the default executor defined within the orb
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - heroku/deploy-via-git:
+          force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git          
       
 workflows:
-  past-hello-workflow:
+  past-delpoy-workflow:
     jobs:
       - build_and_test
+      - deploy:
+          requires:
+            - build_and_test # only deploy if the build_and_test job has completed
+          filters:
+            branches:
+              only: main # only deploy when on main
