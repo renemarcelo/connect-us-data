@@ -22,7 +22,7 @@ jobs:
 
   # ...previous job(s)...
   deploy: # this can be any name you choose
-    context: herokuEnvVars
+    
     executor: heroku/default # use the default executor defined within the orb
     steps:
       - attach_workspace:
@@ -36,6 +36,7 @@ workflows:
     jobs:
       - build_and_test
       - deploy:
+          context: herokuEnvVars
           requires:
             - build_and_test # only deploy if the build_and_test job has completed
           filters:
