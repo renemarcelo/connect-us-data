@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.0.3
+  heroku: circleci/heroku@2.0
 
 jobs:
   # say-hello: # updated
@@ -29,7 +30,7 @@ jobs:
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git          
       
 workflows:
-  past-delpoy-workflow:
+  past-deploy-workflow:
     jobs:
       - build_and_test
       - deploy:
