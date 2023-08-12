@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   # say-hello: # updated
-  build_and_test_connectus_data: 
+  build_and_test:
     executor: python/default # use the default executor defined within the orb
     steps:
       - checkout # checkout source code
@@ -20,4 +20,4 @@ jobs:
 workflows:
   past-hello-workflow:
     jobs:
-      - build_and_test_connectus_data
+      - build_and_test
