@@ -8,7 +8,7 @@ itsdangerous==2.0.1
 Jinja2==3.0.2
 joblib==1.1.0
 MarkupSafe==2.0.1
-numpy==1.20.1
+numpy==1.23.5
 pandas==1.0.5
 psycopg2-binary==2.8.6
 python-dateutil==2.8.2
